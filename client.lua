@@ -14,7 +14,6 @@ local function attachHandbag(model)
     local player = PlayerPedId()
     local coords = GetEntityCoords(player)
     
-    -- Request and load the model
     local modelHash = GetHashKey(model)
     RequestModel(modelHash)
     
