@@ -6,6 +6,8 @@ A comprehensive handbag and accessory system for RedM roleplay servers.
 
 Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags and accessories to your RedM server. This resource allows players to carry and display various types of bags, purses, and other accessories like canes, enhancing the roleplaying experience with period-appropriate items.
 
+🔹 **Support**: [Join our Discord](https://discord.gg/xUcj2R4ZX4)
+
 ## Features
 
 - 8 different handbags and accessories with unique models
