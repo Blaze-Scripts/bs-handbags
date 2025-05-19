@@ -1,4 +1,5 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
+local Config = require 'config'
 local activeBag = nil
 
 ---@param model string The model name of the handbag to attach
@@ -27,8 +28,8 @@ local function attachHandbag(model)
     -- Check if model loaded successfully
     if not HasModelLoaded(modelHash) then
         lib.notify({
-            title = 'Error',
-            description = 'Error loading model',
+            title = Config.Notifications.error.title,
+            description = Config.Notifications.error.modelLoad,
             type = 'error'
         })
         return nil
@@ -38,8 +39,8 @@ local function attachHandbag(model)
     local prop = CreateObject(modelHash, coords.x, coords.y, coords.z, true, true, true)
     if not DoesEntityExist(prop) then
         lib.notify({
-            title = 'Error',
-            description = 'Error creating handbag',
+            title = Config.Notifications.error.title,
+            description = Config.Notifications.error.createBag,
             type = 'error'
         })
         return nil
@@ -48,25 +49,23 @@ local function attachHandbag(model)
     -- Set as mission entity to prevent automatic cleanup
     SetEntityAsMissionEntity(prop, true, true)
     
-    -- Define attachment positions based on model
-    local attachData = {
-        ["s_pursefancy01x"] = {bone = "Skel_L_Hand", pos = {x = 0.3, y = -0.0, z = 0.1}, rot = {x = 69.8, y = 188.2, z = 90.0}},
-        ["mp004_p_cs_jessicapurse01x"] = {bone = "Skel_L_Hand", pos = {x = 0.43, y = 0.02, z = 0.19}, rot = {x = 69.4, y = 176.5, z = 89.8}},
-        ["s_pursefancy02x"] = {bone = "Skel_L_Hand", pos = {x = 0.4, y = 0.02, z = 0.11}, rot = {x = 69.8, y = 188.2, z = 90.0}},
-        ["s_penelopepurse01x"] = {bone = "Skel_L_Hand", pos = {x = 0.35, y = -0.0, z = 0.1}, rot = {x = 80.0, y = 180.0, z = 90.0}},
-        ["p_bag01x"] = {bone = "Skel_L_Hand", pos = {x = 0.39, y = -0.0, z = 0.2}, rot = {x = 66.0, y = 185.0, z = 95.0}},
-        ["p_cs_bagstrauss01x"] = {bone = "Skel_L_Hand", pos = {x = 0.40, y = -0.0, z = 0.2}, rot = {x = 70.0, y = 178.0, z = 95.0}},
-        ["p_cane01x"] = {bone = "Skel_L_Hand", pos = {x = 0.9, y = -0.0, z = 0.38}, rot = {x = 66.0, y = 182.0, z = 92.0}},
-        ["p_bag_leather_doctor"] = {bone = "Skel_L_Hand", pos = {x = 0.28, y = 0.03, z = 0.12}, rot = {x = 70.0, y = 178.0, z = 95.0}}
-    }
+    -- Build attachment data from config
+    local attachData = {}
+    for _, handbag in ipairs(Config.Handbags) do
+        attachData[handbag.model] = {
+            bone = handbag.bone,
+            pos = handbag.pos,
+            rot = handbag.rot
+        }
+    end
     
     -- Get attachment data for the model
     local data = attachData[model]
     
     if not data then
         lib.notify({
-            title = 'Error',
-            description = 'Unknown handbag model',
+            title = Config.Notifications.error.title,
+            description = Config.Notifications.error.unknownModel,
             type = 'error'
         })
         DeleteObject(prop)
@@ -93,8 +92,8 @@ RegisterNetEvent('bs-handbags:client:toggleBag', function(modelName)
         DeleteObject(activeBag)
         activeBag = nil
         lib.notify({
-            title = 'Handbag',
-            description = 'Handbag stowed',
+            title = Config.Notifications.success.title,
+            description = Config.Notifications.success.stowed,
             type = 'inform'
         })
     else
@@ -102,8 +101,8 @@ RegisterNetEvent('bs-handbags:client:toggleBag', function(modelName)
         activeBag = attachHandbag(modelName)
         if activeBag then
             lib.notify({
-                title = 'Handbag',
-                description = 'Handbag equipped',
+                title = Config.Notifications.success.title,
+                description = Config.Notifications.success.equipped,
                 type = 'success'
             })
         end

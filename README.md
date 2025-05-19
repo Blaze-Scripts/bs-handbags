@@ -13,6 +13,9 @@ Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags an
 - Toggle system (equip/unequip with the same item)
 - Automatic model loading and cleanup
 - Full integration with RSG Core inventory system
+- Centralized configuration system
+- Easy to add new handbags
+- Customizable notification messages
 - Optimized resource with minimal performance impact
 
 ## Dependencies
@@ -48,27 +51,44 @@ Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags an
 
 ## Developer Information
 
+### Configuration
+
+All handbag settings are centralized in the `config.lua` file, making it easy to customize and extend the resource.
+
 ### Adding New Handbags
 
-To add new handbags, edit the `server.lua` file and add a new entry to the `handbags` table:
+To add new handbags, simply edit the `config.lua` file and add a new entry to the `Config.Handbags` table:
 
 ```lua
-{ 
-    model = "model_name", 
-    item = "bs_handbag_itemname", 
-    label = "Display Name",
-    weight = 150,
-    description = "Item description"
+{
+    model = "model_name",             -- The model name of the handbag
+    item = "bs_handbag_itemname",    -- The item name in the inventory
+    label = "Display Name",          -- The display name of the handbag
+    weight = 150,                    -- Weight of the item
+    description = "Item description", -- Description of the item
+    bone = "Skel_L_Hand",            -- The bone to attach the handbag to
+    pos = {x = 0.4, y = 0.0, z = 0.1}, -- Position offset
+    rot = {x = 70.0, y = 180.0, z = 90.0} -- Rotation offset
 }
 ```
 
-Then add the attachment data in `client.lua` in the `attachData` table:
+### Customizing Notifications
+
+You can customize all notification (oxlib) messages in the `config.lua` file:
 
 ```lua
-["model_name"] = {
-    bone = "Skel_L_Hand", 
-    pos = {x = 0.4, y = 0.0, z = 0.1}, 
-    rot = {x = 70.0, y = 180.0, z = 90.0}
+Config.Notifications = {
+    success = {
+        title = "Handbag",
+        equipped = "Handbag equipped",
+        stowed = "Handbag stowed"
+    },
+    error = {
+        title = "Error",
+        modelLoad = "Error loading model",
+        createBag = "Error creating handbag",
+        unknownModel = "Unknown handbag model"
+    }
 }
 ```
 

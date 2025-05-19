@@ -11,7 +11,8 @@ lua54 'yes'
 
 shared_scripts {
     '@rsg-core/shared/locale.lua',
-    '@ox_lib/init.lua'
+    '@ox_lib/init.lua',
+    'config.lua'
 }
 
 client_scripts {
