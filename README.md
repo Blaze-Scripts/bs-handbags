@@ -1,16 +1,14 @@
-# Blaze Scripts Handbags
+# Blaze Scripts - Handbags
 
-A comprehensive handbag and accessory system for RedM roleplay servers.
+![Handbags Preview](https://i.imgur.com/yztOpCJ.png)
 
-## Overview
+## Description
 
 Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags and accessories to your RedM server. This resource allows players to carry and display various types of bags, purses, and other accessories like canes, enhancing the roleplaying experience with period-appropriate items.
 
-🔹 **Support**: [Join our Discord](https://discord.gg/xUcj2R4ZX4)
-
 ## Features
 
-- 8 different handbags and accessories with unique models
+- 13 different handbags and accessories with unique models & itemimages
 - Proper 3D attachment to player character
 - Toggle system (equip/unequip with the same item)
 - Automatic model loading and cleanup
@@ -29,8 +27,9 @@ Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags an
 
 1. Ensure you have the required dependencies installed
 2. Place the `bs-handbags` folder in your server's resources directory
-3. Add `ensure bs-handbags` to your server.cfg
-4. Restart your server
+3. Add the item images to your inventory resource (images folder)
+4. Add `ensure bs-handbags` to your server.cfg
+5. Restart your server
 
 ## Available Items
 
@@ -44,6 +43,12 @@ Blaze Scripts Handbags (bs-handbags) adds a collection of equippable handbags an
 | bs_handbag_classy | Classic Bag | A classic bag with timeless design | p_cs_bagstrauss01x |
 | bs_handbag_doctor | Doctor's Bag | A bag for medical supplies | p_bag_leather_doctor |
 | bs_handbag_cane | Walking Cane | An elegant cane for the distinguished gentleman | p_cane01x |
+| bs_handbag_coal | Coal Bag | A bag for carrying coal | p_coalbag01x |
+| bs_handbag_penelopebig | Penelope Big Bag | A large handbag in Penelope style | s_penelopebag01x |
+| bs_handbag_levin | Levin Bag | A bag for carrying Levin | p_cs_baglevin01x |
+| bs_handbag_workbagdark | Work Bag (Dark) | A robust bag for daily work (dark) | p_cs_baganders01x |
+| bs_handbag_purse | Purse | A small handbag for the lady of society | p_cs_purse01x |
+
 
 ## Usage
 
@@ -102,3 +107,4 @@ This resource is an adaptation of the original handbags resource by Annihbal. Pl
 
 - Original resource by Annihbal (https://github.com/Annihbal/handbags) for VORP framework
 - Adapted for RSG Core by Blaze Scripts
+- Item Images from Tankie (https://the-icon-library-project-redm-webshop.tebex.io/)

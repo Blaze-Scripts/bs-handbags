@@ -19,7 +19,7 @@ CreateThread(function()
             label = handbag.label,
             weight = handbag.weight,
             type = 'item',
-            image = handbag.item .. '.png',
+            image = handbag.model .. '.png',
             unique = false,
             useable = true,
             shouldClose = true,
