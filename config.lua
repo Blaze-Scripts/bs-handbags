@@ -81,7 +81,59 @@ Config.Handbags = {
         bone = "Skel_L_Hand",
         pos = {x = 0.9, y = -0.0, z = 0.38},
         rot = {x = 66.0, y = 182.0, z = 92.0}
-    }
+    },
+    -- v1.1
+    {
+        model = "p_coalbag01x",
+        item = "bs_handbag_coal",
+        label = "Coal Bag",
+        weight = 200,
+        description = "A bag for carrying coal",
+        bone = "Skel_L_Hand",
+        pos = {x = 0.12, y = -0.0, z = 0.05},
+        rot = {x = 0.8, y = 250.2, z = 50.0}
+    },
+    {
+        model = "s_penelopebag01x",
+        item = "bs_handbag_penelopebig",
+        label = "Penelope Big Bag",
+        weight = 200,
+        description = "A large handbag in Penelope style",
+        bone = "Skel_L_Hand",
+        pos = {x = 0.55, y = -0.0, z = 0.25},
+        rot = {x = 66.0, y = 185.0, z = 95.0}
+    },
+    {
+        model = "p_cs_baglevin01x",
+        item = "bs_handbag_levin",
+        label = "Levin Bag",
+        weight = 200,
+        description = "A bag for carrying Levin",
+        bone = "Skel_L_Hand",
+        pos = {x = 0.1, y = 0.0, z = 0.07},
+        rot = {x = 69.8, y = 188.2, z = 90.0}
+    },
+    {
+        model = "p_cs_baganders01x",
+        item = "bs_handbag_workbagdark",
+        label = "Work Bag (Dark)",
+        weight = 200,
+        description = "A robust bag for daily work (dark)",
+        bone = "Skel_L_Hand",
+        pos = {x = 0.39, y = -0.0, z = 0.2},
+        rot = {x = 66.0, y = 185.0, z = 95.0}
+    },
+    {
+        model = "p_cs_purse01x",
+        item = "bs_handbag_purse",
+        label = "Purse",
+        weight = 200,
+        description = "A small handbag for the lady of society",
+        bone = "Skel_L_Hand",
+        pos = {x = 0.1, y = 0.0, z = 0.04},
+        rot = {x = -69.8, y = 188.2, z = 90.0}
+    },
+
 }
 
 -- Notification settings
